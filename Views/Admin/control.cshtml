@@ -1,0 +1,113 @@
+﻿
+@model List<MVC_MEGA_Project.Models.order>
+
+
+@{
+    ViewBag.Title = "control";
+}
+@{
+    Layout = "~/Views/Shared/_layout1.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+	
+	<!--banner-->
+	<div class="banner">
+		<div class="banner-info">
+			<h2 class="hdng">Lorem ipsum dolor sit amet onsectetur</h2>
+			<p>Our event organization to make your day special</p>
+		</div>
+	</div>			
+	<!--//banner-->
+	<!--banner-bottom-->
+	<div class="bnr-botom">			
+			
+		<div class="clearfix"> </div>
+		<!--welcome-->
+		<div class="welcome">	
+		<div class="col-md-12 " style="text-align:center;">
+            <h3 class="title">Welcome Admin</h3>
+            <br>
+            @*
+              <h2 style="color:red;font-family: monospace;" ;>IN order to delete</h2>
+                 <a href="~/Admin/delete">DELETE</a> 
+
+             <br>
+              <h2 style="color:red;font-family: monospace;" ;>IN order to update</h2>
+                 <a href="~/Admin/update">UPDATE</a> 
+
+               <br>
+              <h2 style="color:red;font-family: monospace;" ;>IN order to retrieve</h2>
+                 <a href="~/Admin/retrieve">RETRIEVE</a> 
+              *@
+                         <div class="contact-textarea col-md-4" >
+				            <form action="~/Admin/delete" method="post" autocomplete="on">
+					            <input type="submit" value="DELETE" >
+				            </form>
+			            </div>
+                        <div class="contact-textarea col-md-4">
+				            <form action="~/Admin/update" method="post" autocomplete="on">
+					            <input type="submit" value="UPDATE" >
+				            </form>
+			            </div>
+                        <div class="contact-textarea col-md-4">
+				            <form action="~/Admin/retrieve" method="post" autocomplete="on">
+					            <input type="submit" value="RETRIEVE" >
+				            </form>
+			            </div>
+			        </div>
+			</div>	
+            </div>	
+			<div class="clearfix"> </div>
+        
+		</div>	
+		<!--//welcome-->
+	
+	<!--//banner-bottom-->
+        
+        
+	<div class="gallery">
+		<div class="container">
+<h1 style="color:red;font-family: monospace;" >	All Data</h1>
+                <table class="table">
+					                <thead>
+						                <tr>
+							                <th>Usename</th>
+							                <th>Event Name</th>
+							                <th>EventFood</th>
+                            
+                                            <th>Event Theme</th>
+                                            <th>People</th>
+                                            <th>Event Date</th>
+
+						                </tr>
+					                </thead>
+					                <tbody>
+                @{
+                    foreach (var ma in Model)
+                    {
+                                   <tr>
+							                <td>@ma.username</td>
+							                <td>@ma.eventname</td>
+							                <td>@ma.eventfood</td>
+							                <td>@ma.theme</td>
+                       							                <td>@ma.people</td>
+
+                       							                <td>@ma.eventdate</td>
+
+						                </tr>
+                    }
+    
+                  }
+                </tbody>
+                    </table>
+
+	    </div>
+    </div>
+	
+</body>
+</html>

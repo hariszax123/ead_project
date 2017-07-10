@@ -1,0 +1,132 @@
+﻿@model List<MVC_MEGA_Project.Models.order>
+
+
+@{
+    ViewBag.Title = "retrieve";
+}
+@{
+    Layout = "~/Views/Shared/_layout1.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+	<!--banner-->
+	<div class="banner about-bnr">
+		<div class="banner-info about-bnr-info">
+			<h2 class="hdng">Lorem ipsum dolor sit amet onsectetur</h2>
+			<p>Our best Florence make your day special</p>
+		</div>
+	</div>			
+	<!--//banner-->
+	<!--gallery-->
+	<div class="gallery">
+		<div class="container">
+			<h3 class="title">Search Data</h3>
+
+<div class="contact-textarea col-md-6">
+<h1>Search by Date</h1>
+
+        <form action="/Admin/retrieve" method="post" autocomplete="on">
+			<label for="sel1"> Event date:</label><br>
+            <input class="form-control" type="date" name="date" >
+            <center><input type="submit"  value="retrieve" name="ret"></center>
+        </form>
+</div>
+
+<div class="contact-textarea col-md-6">
+<h1>Search by Username</h1>
+    <form action="/Admin/retrieve" method="post" autocomplete="on">
+    	 <label for="sel1"> Username:</label>
+         <input class="form-control" type="text" name="user" > 
+         <center><input type="submit"  value="retrieveun" name="ret_un"></center>
+    </form>
+</div>
+    
+  
+            
+<div class="contact-textarea ">
+                    
+              <table class="table">
+					<thead>
+						<tr>
+							<th>Username</th>
+							<th>Event Name</th>
+							<th>Event Food</th>
+                            <th>Event Theme</th>
+                            <th>People</th>
+                            <th>Date</th>
+
+						</tr>
+					</thead>
+					<tbody>
+@{
+     string t = Request["ret"];
+     if (t == "retrieve" && (Request["date"]!="") && (Model.Count!=0 ))
+     {
+       foreach (var maa in Model)
+       {
+                   <tr>
+					   <td>@maa.username</td>
+					   <td>@maa.eventname</td>
+					   <td>@maa.eventfood</td>
+				   	   <td>@maa.theme</td>
+                       <td>@maa.people</td>
+                       <td>@maa.eventdate</td>
+
+                   </tr>
+        }
+    
+    }
+    else if ((Request["date"] != "") && (Model == null))
+    {
+                         <tr>
+							<td>No data found</td>
+							
+						</tr>
+     }
+    
+  
+
+    else if((Request["date"] == "") && (Model == null))
+    {
+                         <tr>
+							<td>No data found</td>
+							
+						</tr>
+                    }
+                    
+                    
+                     string tun = Request["ret_un"];
+
+    if (tun == "retrieveun" && (Request["user"] != "") && (Model != null))
+    {
+
+    foreach (var ma in Model)
+    {
+                   <tr>
+							<td>@ma.username</td>
+							<td>@ma.eventname</td>
+							<td>@ma.eventfood</td>
+							<td>@ma.theme</td>
+                       							<td>@ma.people</td>
+
+                       							<td>@ma.eventdate</td>
+
+						</tr>
+    }
+    }
+
+                    
+                    }
+                        
+</tbody>
+    </table>
+             </div>                                                     
+
+             </div>                                                     
+    </div>                          
+ </body>
+</html>

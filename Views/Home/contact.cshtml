@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "contact";
+}
+
+@model MVC_MEGA_Project.Models.order
+@{
+    if (Session["user"] != null)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+
+    Layout = "~/Views/Shared/_layout.cshtml";
+    ViewBag.Title = "Login";
+}
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<!DOCTYPE html>
+<html>
+    
+<body>
+	
+	<!--banner-->
+	<div class="banner about-bnr">
+		<div class="banner-info about-bnr-info">
+			<div class="container">
+				<h2 class="hdng">Lorem ipsum dolor sit amet onsectetur</h2>
+				<p>Our best Florence make your day special</p>
+			</div>
+		</div>
+	</div>			
+	<!--//banner-->
+	<!-- contact -->
+	<div class="contact">
+		<div class="container">
+			<div class="contact-main">
+				<div class="contact-top">
+					
+					<div class="col-md-3 ">
+                    </div>
+					<div class="col-md-6 contact-top-left">
+						<div class="contact-textarea">
+							<h3 class="title">Contact Us</h3>
+                            
+@{
+                    
+    if (@ViewBag.Message == "success")
+                        {
+               <div class="alert alert-success" role="alert">
+					<strong>Sent</strong> Your Me have successfully deleted event
+				</div>
+                         }
+                         
+                         
+                }
+                            
+                            <h3 id="result"  ></h3><br>
+							<form>
+								<label>Name</label><input id="name" name="txtName" type="text"  />
+								<label>Subject</label><input id="subject"name="ddlSubject" type="text" />
+								<label>Email</label><input id="email"name="email" type="text"/>
+								<label>Message</label><textarea id="msg" name="txtMessage" ></textarea>
+								<input id="b1"type="submit" name="msg" value="SUBMIT" >
+								<input type="reset" value="CLEAR" >
+							</form>
+
+   @Scripts.Render("~/bundles/jquery")
+    <script>
+
+        $(document).ready(function () {
+
+
+            $('#b1').click(function (e) {
+                e.preventDefault();
+                var userName = $('#name').val();
+                var subject = $('#subject').val();
+                var email = $('#email').val();
+                var msg = $('#msg').val();
+
+                
+//                alert('User Name ='+ userName);
+                
+                $.getJSON("/home/CheckUserName?UserName=" + userName + "&email=" + email + "&msg=" + msg, function (data)
+                {
+                    if (data) {
+                        alert(data);
+
+                        $('#result').text("Thank you for contacting us");
+                        
+                    }
+                    else {
+                        $('#result').text("Incomplete data");
+                    }
+                });
+
+            });
+
+        });
+    </script>          
+						</div>
+					</div>
+					<div class="col-md-3 ">
+                    </div>
+                   </div>
+                </div>
+         </div>
+
+    </div>
+    <script src="js/bootstrap.js"></script>
+</body>
+</html>

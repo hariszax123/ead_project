@@ -1,0 +1,138 @@
+﻿@model MVC_MEGA_Project.Models.order
+
+@{
+    ViewBag.Title = "update";
+}
+@{
+    Layout = "~/Views/Shared/_layout1.cshtml";
+
+}
+
+<!DOCTYPE html>
+<html>
+
+<body>
+	<!--banner-->
+	<div class="banner about-bnr">
+		<div class="banner-info about-bnr-info">
+			<h2 class="hdng">Lorem ipsum dolor sit amet onsectetur</h2>
+			<p>Our best Florence make your day special</p>
+		</div>
+	</div>			
+	<!--//banner-->
+	<!--gallery-->
+	<div class="gallery">
+		<div class="container">
+			<h3 class="title">Update</h3>
+            <div class="contact-textarea">
+              <form action="/Admin/update" method="post" autocomplete="on">    
+                   <label for="sel1"> Event date:</label>
+                  <input class="form-control" type="date" name="date" >
+                <center> <input type="submit"  value="Show Data" name="up"></center>
+               </form>
+            </div><br>
+
+@{
+                        if(@ViewBag.msg=="success")
+                        {
+                               <div class="alert alert-success" role="alert">
+					                <strong>UPDATED</strong> You have successfully updated event data
+				                </div>
+                                    
+                         }
+                         else if(@ViewBag.msg=="empty")
+                        {
+                               <div class="alert alert-danger" role="alert">
+					                <strong>OOPs</strong> INVALID DATE ....EMPTY
+				                </div>
+                         }
+                         else if(@ViewBag.msg=="error")
+                        {
+                               <div class="alert alert-danger" role="alert">
+					                <strong>OOPs</strong> INVALID DATE
+				                </div>
+                         }
+                         }
+
+
+
+                    @{
+                        string t = Request["up"];
+                        string t1 = Request["orderup"];
+
+
+
+                    if (t == "Show Data" && (Request["date"] != "") && (Model != null))
+                    {
+                    DateTime date;
+                    string ename;
+                    string efood;
+                    string etheme;
+                    string un;
+                    int peo;
+
+                    date = @Model.eventdate;
+                    ename = @Model.eventname;
+                    efood = @Model.eventfood;
+                    etheme = @Model.theme;
+                    un = @Model.username;
+                    peo = @Model.people;
+                        
+                    
+                    
+              
+            <div class="contact-textarea">     
+                <form action="/Admin/update" method="post" autocomplete="on">
+                                <div class="form-group ">
+                                     <label for="sel1"> Event date:</label>
+                                     <label for="sel1"> @date</label>
+
+                                      @*<input class="form-control" type="date" name="d"  value="@date" >*@
+								</div>
+                                     <label for="sel1"> People:</label>
+                                <input type="text" name="peo" value="@peo"  />
+								
+								<div class="form-group">
+                                     <label for="sel1"> Event:</label>
+                                      <select name="ename"class="form-control"  >
+										<option value="@ename"selected >@ename</option>
+                                        <option value="barat">Barat </option>
+                                        <option value="waleema">Waleema </option>
+                                        <option value="party">Party </option>
+                                        <option value="mehndi">Mehndi </option>
+                                      </select>
+								</div>
+								<div class="form-group">
+									  <label for="sel1"> Theme:</label>
+                                      <select name="etheme" class="form-control" >
+										<option value="@etheme"selected >@etheme</option>
+                                        <option value="blue_velvet">Blue Velvet </option>
+                                        <option value="red_rose">Red Rose </option>
+                                        <option value="black_and_white">Black and White </option>
+                                        <option value="retro">Retro  </option>
+										<option value="vintage">Vintage	 </option>
+                                      </select>
+								</div>
+								<div class="form-group">
+                                     <label for="sel1"> Food :</label>
+                                      <select name="efood" class="form-control" >
+										<option value="@efood" selected>@efood</option>
+                                        <option value="Pakistani">Pakistani  </option>
+                                        <option value="Chinese">Chinese  </option>
+                                        <option value="Italian">Italian  </option>
+                                        <option value="Thai">Thai  </option>
+                                      </select>
+								</div>
+		 username: <input type="text" name="name"  value="@un" />
+
+								<input type="submit" value="Update" name="orderup">
+
+							</form>
+                     </div>
+                    }
+                    }
+                    
+        </div>          
+    </div>
+ </body>
+</html>

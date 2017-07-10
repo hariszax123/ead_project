@@ -1,0 +1,118 @@
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Event Management System</title>
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Florence Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Custom Theme files -->
+<link href="~/Content/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+<link href="~/Content/style.css" type="text/css" rel="stylesheet" media="all">
+    <script src="~/Scripts/bootstrap.js"></script>
+<!-- js -->
+<script src="~/Script/jquery-1.11.1.min.js"></script> 
+<!-- //js -->	
+</head>
+<body>
+	<!--header-->
+	<div class="top-nav">
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header navbar-right">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+            <h3  style="float:right;color:red;">Welcome | @Session["uname"]</h3>
+
+					<!--navigation-->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-left cl-effect-5">
+						<li><a href="~/Home/Welcome" class="active"><span data-hover="Home">Home</span></a></li>
+						<li><a href="~/Home/about"> <span data-hover="About">About </span> </a></li>
+						<li><a href="~/Home/placeorder"><span data-hover="Order">Order</span></a></li>
+						<li><a href="~/Home/gallery"><span data-hover="Gallery">Gallery</span></a></li>
+						<li><a href="~/Home/contact"><span data-hover="Contact">Contact</span></a></li>
+						<li><a href="~/Home/index"onclick=""><span data-hover="Logout">Logout</span></a></li>
+					</ul>
+                   
+                     
+					<div class="clearfix"> </div>
+				</div>
+				<!--//navigation-->
+					<div class="logo">
+						<h1><a href="~/Home/index">Event Management System</a></h1>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				
+			</div>	
+		</nav>		
+	</div>	
+	
+        @RenderBody()
+	<!--footer-->
+	<div class="footer">	
+		<div class="col-md-8 footer-left">
+			<div class="col-md-4 footer-text">
+				<h3>Navigation</h3>
+				<ul>
+					<li><a href="~/Home/index">Home</a></li>			
+					<li><a href="~/Home/about">About</a></li>			
+					<li><a href="~/Home/contact">Contact</a></li>
+				</ul>
+			</div>
+			<div class="col-md-4 footer-text">
+				<h3>Popular</h3>
+				 <ul>
+					 <li><a href="~/Home/Gallery">Gallery</a></li>
+				 </ul>
+			</div>
+			<div class="col-md-4 footer-text">
+				<h3>Get In Touch</h3>
+				<ul>
+					<li>Ola-ola street jump,</li>
+					<li>260-14 City, Country</li>
+					<li><a href="mailto:info@example.com">mhzrocks@gmail.com</a></li>
+				</ul>			
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="col-md-4 footer-right">
+			<div class=" icons">
+				<ul>
+					<li><a href="https://twitter.com" class="twitter"> </a></li>
+					<li><a href="https://facebook.com" class="twitter facebook"> </a></li>
+					<li><a href="https://chrome.com" class="twitter chrome"> </a></li>
+					<li><a href="https://pinterest.com" class="twitter pinterest"> </a></li>
+					<li><a href="https://linkedin.com" class="twitter linkedin"> </a></li>
+				</ul>
+			</div>
+			
+		</div>
+		<div class="clearfix"> </div>
+		<div class="container">
+			<div class="copy-right">
+				<p> © 2017 Event Management System . All rights reserved </p>	
+			</div>
+		</div>
+	</div>
+	<!--//footer-->
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="~/Script/bootstrap.js"></script>
+</body>
+</html>

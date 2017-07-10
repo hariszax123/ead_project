@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_layout1.cshtml";
+
+}
+@{
+    ViewBag.Title = "delete";
+}
+
+ 
+     
+
+<!DOCTYPE html>
+<html>
+
+<body>
+	<!--banner-->
+	<div class="banner about-bnr">
+		<div class="banner-info about-bnr-info">
+			<h2 class="hdng">Lorem ipsum dolor sit amet onsectetur</h2>
+			<p>Our best Florence make your day special</p>
+		</div>
+	</div>			
+	<!--//banner-->
+	<!--gallery-->
+	<div class="gallery">
+		<div class="container">
+			<h3 class="title">Delete</h3>
+            
+            <div class="contact-textarea">
+                <form action="/Admin/delete" method="post" autocomplete="on">
+
+				 
+                
+                   <label for="sel1"> Event date:</label>
+                  <input class="form-control" type="date" name="date" >
+                 <center><input type="submit"  value="Delete" name="del"></center>
+               </form>
+            </div><br>
+@{
+                    
+                        if(@ViewBag.delete=="success")
+                        {
+               <div class="alert alert-success" role="alert">
+					<strong>DELETED</strong> You have successfully deleted event
+				</div>
+                         }
+                         else  if(@ViewBag.delete=="error")
+                        {
+               <div class="alert alert-danger" role="alert">
+					<strong>OOPs</strong> Not successfuly deleted......INVALID DATE
+				</div>
+                         }
+                           else  if(@ViewBag.delete=="empty")
+                        {
+               <div class="alert alert-danger" role="alert">
+					<strong>OOPs</strong> EMPTY DATE
+				</div>
+                         }
+                         
+                    }
+            </div>
+        </div>
+    </body>
+</html>
